@@ -93,12 +93,23 @@ ul {list-style: none;} */
   width: 1200px;
   margin: auto;
   padding: 0 15px 0 15px;
+}
 
-  /* border: 1px solid tomato; */
+/* < !--Спрятали заголовок ! ! ! --> */
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
 
 /* header */
-/* nav */
 
 .header__container {
   display: flex;
@@ -112,8 +123,7 @@ ul {list-style: none;} */
 }
 
 .logo {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 26px;
@@ -140,15 +150,14 @@ ul {list-style: none;} */
   position: relative;
 }
 
+/* current  */
 
-/* --------------------------------- */
-/* .current  */
-
-.header__menu .current.header__link::after {
+.header__link--current::after {
   content: '';
   display: block;
   width: calc(100% - 40px);
   height: 4px;
+  
   /* margin-top: 32px; */
   background-color: var(--button-background-color);
   position: absolute;
@@ -176,7 +185,7 @@ ul {list-style: none;} */
   opacity: 1;
 }
 
-.header__menu .header__link.current {
+.header__link--current {
   color: var(--accent-color);
 }
 
@@ -198,8 +207,6 @@ ul {list-style: none;} */
 .header__link {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
 
 .header__link:hover .header__icon {
   fill: var(--accent-color);
@@ -234,13 +241,11 @@ fill: var(--primary-text-color);
   align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
-
   color: var(--primary-text-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -263,7 +268,7 @@ fill: var(--primary-text-color);
   padding-bottom: 94px;
 }
 
-.section-hero {
+.hero {
   max-width: 100%;
   height: 600px;
   margin-left: auto;
@@ -272,15 +277,13 @@ fill: var(--primary-text-color);
   background-color: #2f303a;
   text-align: center;
   padding: 200px 0;
-
   background-image: linear-gradient(0deg, rgba(47, 48, 58, 0.4) 0%, rgba(47, 48, 58, 0.4) 100%),
     url('../images/header-img.jpg');
   background-position: center;
   background-size: cover;
 }
 
-.section-hero-title {
-  
+.hero__title {
   width: 696px;
   height: 120px;
   margin: 0 auto 30px auto;
@@ -291,325 +294,42 @@ fill: var(--primary-text-color);
   text-transform: uppercase;
 }
 
-
-/* ----------------------------------------------------------- */
-/* Modal */
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.2);
-  transition: opacity 250ms, visibility 250ms; /*делаем замедление окрытия и закрытия окна 250ms*/
-}
-
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none; /* ото свойство разрешает кликать на кнопки через бекдроп*/
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 528px;
-  max-height: 581px;
-  height: 100%;
-  background-color: #ffffff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  position: relative;
-  overflow: auto;
-  padding: 40px;
-}
-/* ------------------------------------------------------------------- */
-/* Форма */
-
-.close-icon-div {
-  position: absolute;
+.primary-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 490px;
-  top: 8px;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.close-icon {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.close-icon-div:hover .close-icon,
-.close-icon-div:focus {
-  fill: var(--accent-color);
-}
-
-.modal-title {
-  margin-bottom: 12px;
-  font-family: 'Roboto';
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
-  text-align: center;
-  letter-spacing: 0.03em;
-  color: #212121;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-}
-.form-label {
-  position: relative;
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.01em;
-
-  color: #757575;
-}
-
-.form-label:nth-child(4) {
-  margin-bottom: 0;
-}
-
-.form-control {
-  position: relative;
-  display: block;
-  height: 40px;
-}
-
-.form-input {
-  display: block;
-  width: 100%;
-  margin-top: 4px;
-  padding: 12px 0px 12px 42px;
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-}
-
-.form-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-input:focus {
-  border-color: var(--accent-color);
-}
-
-.form-comment:focus {
-  border-color: var(--accent-color);
-}
-
-/* ------------------------------------------------------------------------------------------------------------*/
-/* ЭТОт ПСЕВДОКЛАС  :focus-within !!! Цей елемент слідкуе в середені себе фокус! пОМОГАЕТ НОРМАЛЬНОМУ СРАБАТЫВАНИЮ!!!! :focus */
-/* -------------------------------------------------------------------------------------------------------------- */
-.form-control:focus-within .form-icon {
-  fill: var(--accent-color);
-}
-/* ---------------------------------------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------------------------------------------- */
-.form-comment-div {
-  display: flex;
-}
-
-.form-comment {
-  display: block;
-  width: 100%;
-  height: 120px;
-  margin-top: 4px;
-  padding: 12px 16px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  resize: none;
-  outline: none;
-}
-
-.form-comment:focus {
-  border-color: var(--accent-color);
-}
-
-/* -------------------------------------------------------------- */
-/* Checkbox */
-
-.visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
-
-.checkbox-input {
-  /* appearance: none; - уберает радиокнопку (там где ставим галочку)*/
-  appearance: none;
-}
-
-.input-div {
-  position: relative;
-
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 15px;
-  margin-right: 8px;
-  border: 1px solid var(--checkbox-color);
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.icon-check {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  opacity: 0;
-}
-
-.checkbox-input:checked + .input-div .icon-check {
-  opacity: 1;
-}
-
-.checkbox-input:checked + .input-div {
-  border-color: var(--checkbox-color-active);
-  background-color: var(--button-background-color);
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.7;
-  letter-spacing: 0.03em;
-  color: #757575;
-
-  cursor: pointer;
-}
-
-/* Один из вариантов оформления радио кнопки! Чуть сложнее */
-/* .checkbox-label {
-  position: relative;
-  padding-left: 24px;
-}
-
-.checkbox-label::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 15px;
-  border: 1px solid black;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.checkbox-label::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 15px;
-  border: 1px solid var(--checkbox-color-active);
-  border-radius: 2px;
-  fill:  var(--checkbox-color-active);
-  background-image: url(../images/vector.svg);
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkbox-input:checked + .checkbox-label::after {
-  opacity: 1;
-  
-} */
-
-.checkbox-dogovir {
-  margin-left: 5px;
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-.form-button {
-  border: 1px solid transparent;
-  margin-top: 30px;
+  min-width: 200px;
+  height: 50px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px 52px;
-  width: 200px;
-  height: 50px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  color: var(--button-text-color);
-  background-color: var(--button-background-color);
+  padding: 10px;
+  font-family: 'Roboto';
   font-weight: 700;
   font-size: 16px;
-  line-height: 1.19;
-  letter-spacing: 0.02em;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  background: #2196f3;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-
-  cursor: pointer;
-
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.primary-button:hover,
+.primary-button:active {
+  background-color: var(--button-background-active-color);
+}
+
+.primary-button:focus {
+  background-color: var(--button-background-active-color);
 }
 
 /* ------------------------------------------------------------------- */
 
-/* <!--Наші переваги--> */ /* feature */
-
-.feature .visually-hidden {
-  /* < !--Спрятали заголовок ! ! ! --> */
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
+/* feature */
 
 /* Вариант как можно сделать картинки еще через ::before
     .container-list::before {
@@ -634,23 +354,22 @@ fill: var(--primary-text-color);
 .icon-kosm::before {
         background-image: url(../images/group-4.svg);
 } */
-/* UL */
-.feature-list {
+ 
+.feature__menu {
   display: flex;
 }
-/* LI */
-.container-list {
+ 
+.feature__list {
   height: 120px;
   width: calc((100% - 90px) / 4);
   margin-right: 30px;
 }
 
-.container-list:last-child {
+.feature__list:last-child {
   margin-right: 0;
 }
-
-/* DIV */
-.img-group-div {
+ 
+.feature__img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -659,24 +378,23 @@ fill: var(--primary-text-color);
   background: var(--section-team-color);
   border-radius: 4px;
 }
-/* SVG */
-.svg-group {
+ 
+.feature__svg {
   background: var(--section-team-color);
   border-radius: 4px;
 }
 
-.feature-list-title {
+.feature__title {
   color: var(--title-text-color);
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.14;
+  line-height: 1.17;
   letter-spacing: 0.03em;
-  text-transform: uppercase;
   margin-top: 30px;
-  margin-bottom: 10px;
+  
 }
 
-.feature-list-text {
+.feature__text {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
@@ -686,39 +404,40 @@ fill: var(--primary-text-color);
 
 /* < !--Чим ми займаємося--> */
 
-.container-work {
+.work__container {
   display: flex;
   flex-direction: column;
 }
 
-.section-title-work {
+.general__title {
   text-align: center;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
+  letter-spacing: 0.03em;
   margin-bottom: 50px;
   color: var(--title-text-color);
 }
 
-.work-list {
+.work__menu {
   display: flex;
   text-transform: uppercase;
 }
-.work-img {
+.work__list {
   position: relative;
   height: 294px;
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
 }
-.work-img:last-child {
+.work__list:last-child {
   margin-right: 0;
 }
-.img-img {
+.work__img {
   height: 100%;
   width: 100%;
 }
 
-.title-img {
+.work__text {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -730,7 +449,6 @@ fill: var(--primary-text-color);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-
   letter-spacing: 0.03em;
   text-transform: uppercase;
   z-index: 1;
@@ -739,46 +457,34 @@ fill: var(--primary-text-color);
 }
 
 /* --------------------------------------------------------- */
-
 /* < !--Наша команда--> */
 
-.section-team {
-  padding-top: 94px;
-  padding-bottom: 94px;
-  background-color: var(--section-team-color);
+.team {
+    background-color: var(--section-team-color);
 }
 
-.container-team {
+.team__container {
   display: flex;
   flex-direction: column;
 }
 
-.section-title-team {
-  font-weight: 700;
-  font-size: 36px;
-  text-align: center;
-  line-height: 1.17;
-  margin-bottom: 50px;
-  color: var(--title-text-color);
-}
-
-.team {
+.team__menu {
   display: flex;
   gap: 30px;
 }
 
-.team-div {
+.team__card {
   padding: 30px 30px 0px 30px;
 }
 
-.team-img {
+.team__img {
   background-color: #fff;
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.team-name {
+.team__name {
   display: flex;
   justify-content: center;
 
@@ -789,7 +495,7 @@ fill: var(--primary-text-color);
   line-height: 1.19;
 }
 
-.team-name-text {
+.team__text {
   text-align: center;
   font-weight: 400;
   font-size: 16px;
@@ -797,14 +503,14 @@ fill: var(--primary-text-color);
   margin-bottom: 16px;
 }
 
-.soc-list {
+.social__menu {
   display: flex;
   justify-content: center;
   gap: 10px;
   padding: 0px 32px 30px 32px;
 }
 
-.soc-link {
+.social__link {
   width: 44px;
   height: 44px;
   display: flex;
@@ -817,24 +523,24 @@ fill: var(--primary-text-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.net-icon:hover {
+.social__icon:hover {
   fill: white;
 }
 
-.soc-link:hover,
-.soc-link:focus {
+.social__link:hover,
+.social__link:focus {
   background-color: #2196f3;
 }
 
-.soc-link:hover .net-icon {
+.social__link:hover .social__icon {
   fill: white;
 }
 
-.soc-link:focus .net-icon {
+.social__link:focus .social__icon {
   fill: white;
 }
 
-.net-icon {
+.social__icon {
   fill: var(--icon-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -843,34 +549,23 @@ fill: var(--primary-text-color);
 
 /* Постійні клієнти! */
 
-.section-clients {
-  padding-top: 94px;
-  padding-bottom: 94px;
+.clients {
+  
   background-color: var(--primary-background-color);
 }
 
-.container-clients .section-title-clients {
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.16;
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin-bottom: 50px;
-  color: var(--title-text-color);
-}
-/* UL */
-.clients-list {
+.clients__menu {
   display: flex;
   justify-content: space-between;
 }
-/* LI */
-.clients-item {
+ 
+.clients__list {
   height: 92px;
   width: calc((100% - 150px) / 6);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms;
 }
-/* A */
-.clients-button {
+ 
+.clients__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -881,18 +576,18 @@ fill: var(--primary-text-color);
 
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* SVG */
-.clients-icon {
+ 
+.clients__icon {
   fill: var(--icon-color);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.clients-button:hover,
-.clients-button:focus {
+.clients__button:hover,
+.clients__button:focus {
   border: 1px solid var(--accent-color);
 }
-.clients-button:hover .clients-icon,
-.clients-button:focus .clients-icon {
+.clients__button:hover .clients__icon,
+.clients__button:focus .clients__icon {
   fill: var(--accent-color);
 }
 
@@ -906,62 +601,42 @@ fill: var(--primary-text-color);
   background-color: var(--footer-color);
 }
 
-.footer-container-all {
+.footer__container {
   display: flex;
   align-items: baseline;
 }
 
-.info-footer {
+.footer__info {
   margin-right: 70px;
 }
 
-.footer-logo {
-  display: block;
-  padding-top: 0;
-  width: 145px;
-  margin-bottom: 20px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 1.19;
-  letter-spacing: 0.03em;
-}
-
-.footer .logo-web {
+.footer__logo .logo__web {
   color: var(--accent-color);
 }
 
-.footer .logo-studio {
+.footer__logo .logo__studio {
   color: var(--accent-color-two);
 }
 
-.footer .map-link {
-  color: var(--accent-color-two);
+.address {
+  margin-top: 20px;
 }
-
-.address .header__link {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.address-all li:not(:last-child) {
-  margin-bottom: 9px;
-}
-
-.map-link {
-  
+ 
+.address__link {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
-
+  color: rgba(255, 255, 255, 0.6);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.address .header__link {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
+.address__color {
+  color: var(--accent-color-two);
+ }
+ 
+.address__menu li:not(:last-child) {
+  margin-bottom: 9px;
 }
 
 .header__link:hover,
@@ -969,8 +644,8 @@ fill: var(--primary-text-color);
   color: var(--accent-color);
 }
 
-.map-link:hover,
-.map-link:focus {
+.address__link:hover,
+.address__link:focus {
   color: var(--accent-color);
 }
 
@@ -978,26 +653,23 @@ fill: var(--primary-text-color);
 
 /* Футер блок социал */
 
-.foter-title-social {
+.footer__title {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-
   margin-bottom: 20px;
-
   color: #ffffff;
 }
 
-.footer-soc-list {
+.footer__menu {
   display: flex;
   justify-content: center;
   gap: 10px;
-
 }
 
-.footer-soc-link {
+.footer__link {
   width: 44px;
   height: 44px;
   display: flex;
@@ -1006,41 +678,40 @@ fill: var(--primary-text-color);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
 
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-net-icon:hover,
-.footer-net-icon:focus {
+.footer__icon:hover,
+.footer__icon:focus {
   fill: white;
 }
 
-.footer-soc-link:hover,
-.footer-soc-link:focus {
-  background-color: #2196f3;
+.footer__link:hover,
+.footer__link:focus {
+  background-color  : #2196f3;
 }
 
-.footer-soc-link:hover .net-icon,
-.footer-soc-link:focus {
+.footer__link:hover .footer-icon,
+.footer__link:focus {
   fill: white;
 }
 
-.footer-net-icon {
+.footer__icon {
   fill: var(--icon-color-two);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.join-mail {
+.footer__mail {
   margin-left: auto;
 }
 
-.footer-form-mail {
+.footer__form {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form-mail-input {
+.footer__input {
   width: 358px;
   height: 50px;
   padding: 16px;
@@ -1058,48 +729,285 @@ fill: var(--primary-text-color);
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-mail-input:hover,
-.form-mail-input:focus {
+.footer__input:hover,
+.footer__input:focus {
   border-color: var(--checkbox-color-active);
 }
 
-.btn {
+.buttom__icon {
+  margin-left: 10px;
+}
+
+/* ----------------------------------------------------------- */
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms, visibility 250ms;
+  /*делаем замедление окрытия и закрытия окна 250ms*/
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* ото свойство разрешает кликать на кнопки через бекдроп*/
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  max-height: 581px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: relative;
+  overflow: auto;
+  padding: 40px;
+}
+
+/* ------------------------------------------------------------------- */
+/* Форма */
+
+.modal__close {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
-  height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  font-family: 'Roboto';
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.8;
-  letter-spacing: 0.06em;
-
-  color: #ffffff;
-  background: #2196f3;
-  border: none;
-  outline: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  left: 490px;
+  top: 8px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
-.btn:hover,
-.btn:active {
-  background-color: var(--button-background-active-color);
+.modal__icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn:focus {
-  background-color: var(--button-background-active-color);
+.modal__close:hover .modal__icon,
+.modal__close:focus {
+  fill: var(--accent-color);
 }
 
-.btn-icon {
-  margin-left: 10px;
+.form {
+  display: flex;
+  flex-direction: column;
 }
+
+.form__title {
+  margin-bottom: 12px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #212121;
+}
+
+.form__label {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: #757575;
+}
+
+.form__label:nth-child(5) {
+  margin-bottom: 0;
+}
+
+.form__control {
+  position: relative;
+  display: block;
+  height: 40px;
+  margin-top: 4px;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  
+  padding: 12px 0px 12px 42px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.form__icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form__input:focus {
+  border-color: var(--accent-color);
+}
+
+.form__textarea:focus {
+  border-color: var(--accent-color);
+}
+
+/* ------------------------------------------------------------------------------------------------------------*/
+/* ЭТОт ПСЕВДОКЛАС  :focus-within !!! Цей елемент слідкуе в середені себе фокус! пОМОГАЕТ НОРМАЛЬНОМУ СРАБАТЫВАНИЮ!!!! :focus */
+/* -------------------------------------------------------------------------------------------------------------- */
+.form__control:focus-within .form__icon {
+  fill: var(--accent-color);
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------- */
+.form__comment {
+  display: flex;
+}
+
+.form__textarea {
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  padding: 12px 16px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  resize: none;
+  outline: none;
+}
+
+.form__comment:focus {
+  border-color: var(--accent-color);
+}
+
+/* -------------------------------------------------------------- */
+/* Checkbox */
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  color: #757575;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  /* appearance: none; - уберает радиокнопку (там где ставим галочку)*/
+  appearance: none;
+}
+
+.checkbox__span {
+  position: relative;
+
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 15px;
+  margin-right: 8px;
+  border: 1px solid var(--checkbox-color);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.checkbox__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.checkbox__dogovir {
+  margin-left: 5px;
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.checkbox__input:checked+.checkbox__span .checkbox__icon {
+  opacity: 1;
+}
+
+.checkbox__input:checked+.checkbox__span {
+  border-color: var(--checkbox-color-active);
+  background-color: var(--button-background-color);
+}
+
+
+/* Один из вариантов оформления радио кнопки! Чуть сложнее */
+/* .checkbox {
+  position: relative;
+  padding-left: 24px;
+}
+
+.checkbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.checkbox::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 15px;
+  border: 1px solid var(--checkbox-color-active);
+  border-radius: 2px;
+  fill:  var(--checkbox-color-active);
+  background-image: url(../images/vector.svg);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-input:checked + .checkbox-label::after {
+  opacity: 1;
+  
+} */
 
 /* ------------------------------------------------------------------------------------------------------------- */
 
@@ -1121,12 +1029,12 @@ fill: var(--primary-text-color);
   margin: -1px;
 }
 
-.section-portfolio {
+.section__portfolio {
   padding-top: 94px;
   padding-bottom: 94px;
 }
 
-.filter {
+.filter__menu {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
@@ -1134,23 +1042,23 @@ fill: var(--primary-text-color);
   gap: 8px;
 }
 
-.button1 {
+.filter__button1 {
   padding: 6px 25px;
 }
 
-.button2 {
+.filter__button2 {
   padding: 6px 22px;
 }
 
-.button3 {
+.filter__button3 {
   padding: 6px 22px;
 }
 
-.button4 {
+.filter__button4 {
   padding: 6px 22px;
 }
 
-.button5 {
+.filter__button5 {
   padding: 6px 22px;
 }
 
@@ -1164,9 +1072,7 @@ fill: var(--primary-text-color);
   letter-spacing: 0.03em;
   border: none;
   border-radius: 4px;
-
   cursor: pointer;
-
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1180,7 +1086,7 @@ fill: var(--primary-text-color);
 
 /* --------------------------------------------------------- */
 
-.filter-list {
+.filter__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1189,21 +1095,19 @@ fill: var(--primary-text-color);
 /* ще є третій варіант метод calc так и сделал */
 /* calc((100% - сумма маржинов в строке(или кол-во маржинов в строке помноженое на значение маржина в px)) / на количество елементов в строке*/
 
-.filter-card {
-  /* width: 370px; */
+.filter__card {
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
   background: var(--accent-color-two);
-
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.filter-card:nth-child(3n) {
+.filter__card:nth-child(3n) {
   margin-right: 0;
 }
 
-.filter-card:nth-last-child(-n + 3) {
+.filter__card:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
 
@@ -1219,34 +1123,34 @@ fill: var(--primary-text-color);
     margin-bottom: 30px;
 } */
 
-.link-portfolio {
+.filter__link {
   display: block;
 }
 
-.link-img {
+.filter__img {
   display: block;
   position: relative;
   overflow: hidden;
 }
 
-.link-portfolio:hover,
-.link-portfolio:focus {
+.filter__link:hover,
+.filter__link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.link-portfolio:hover .filter-description,
-.link-portfolio:focus .filter-description {
+.filter__link:hover .filter__description,
+.filter__link:focus .filter__description {
   transform: translateY(0);
 }
 
-.filter-card-div {
+.filter__div {
   padding: 20px 24px;
   border: 1px solid #eeeeee;
   border-top: none;
 }
 
-.section-title-portfolio {
+.filter__title {
   margin-bottom: 4px;
   color: var(--title-text-color);
   font-weight: 700;
@@ -1255,7 +1159,7 @@ fill: var(--primary-text-color);
   letter-spacing: 0.06em;
 }
 
-.section-title-portfolio-text {
+.filter__text {
   color: var(--primary-text-color);
   font-weight: 400;
   font-size: 16px;
@@ -1263,24 +1167,21 @@ fill: var(--primary-text-color);
   letter-spacing: 0.03em;
 }
 
-.filter-description {
+.filter__description {
   display: flex;
   align-items: center;
   position: absolute;
-
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding: 24px;
-
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0.03em;
   color: var(--accent-color-two);
   background-color: rgba(33, 150, 243, 0.9);
-
   transform: translateY(101%);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
