@@ -20,13 +20,13 @@
     border-radius: 4px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-}
 
-.primary-button:hover,
-.primary-button:active {
-    background-color: var(--button-background-active-color);
-}
+    &:hover,
+    &:active {
+        background-color: var(--button-background-active-color);
+    }
 
-.primary-button:focus {
-    background-color: var(--button-background-active-color);
+    &:focus {
+        background-color: var(--button-background-active-color);
+    }
 }

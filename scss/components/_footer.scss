@@ -2,106 +2,106 @@
     width: 100%;
     padding: 60px 0;
     background-color: var(--footer-color);
-}
 
-.footer__container {
-    display: flex;
-    align-items: baseline;
-}
+    &__container {
+        display: flex;
+        align-items: baseline;
+    }
 
-.footer__info {
-    margin-right: 70px;
-}
+    &__info {
+        margin-right: 70px;
+    }
 
-.footer__logo .logo__web {
-    color: var(--accent-color);
-}
+    &__logo .logo__web {
+        color: var(--accent-color);
+    }
 
-.footer__logo .logo__studio {
-    color: var(--accent-color-two);
-}
+    &__logo .logo__studio {
+        color: var(--accent-color-two);
+    }
 
-.footer__title {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
+    &__title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.14;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #ffffff;
+    }
 
-.footer__menu {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
+    &__menu {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
 
-.footer__link {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
+    &__link {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
 
-    transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+        transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.footer__icon:hover,
-.footer__icon:focus {
-    fill: white;
-}
+    &__icon:hover,
+    &__icon:focus {
+        fill: white;
+    }
 
-.footer__link:hover,
-.footer__link:focus {
-    background-color: #2196f3;
-}
+    &__link:hover,
+    &__link:focus {
+        background-color: #2196f3;
+    }
 
-.footer__link:hover .footer-icon,
-.footer__link:focus {
-    fill: white;
-}
+    &__link:hover &-icon,
+    &__link:focus {
+        fill: white;
+    }
 
-.footer__icon {
-    fill: var(--icon-color-two);
-}
+    &__icon {
+        fill: var(--icon-color-two);
+    }
 
-.footer__mail {
-    margin-left: auto;
-}
+    &__mail {
+        margin-left: auto;
+    }
 
-.footer__form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.footer__input {
-    width: 358px;
-    height: 50px;
-    padding: 16px;
-    margin-right: 12px;
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.25;
-    letter-spacing: 0.03em;
-    color: rgba(255, 255, 255, 0.6);
-    background-color: var(--footer-color);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-    border-radius: 4px;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+    &__input {
+        width: 358px;
+        height: 50px;
+        padding: 16px;
+        margin-right: 12px;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: 0.03em;
+        color: rgba(255, 255, 255, 0.6);
+        background-color: var(--footer-color);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+        border-radius: 4px;
+        transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.footer__input:hover,
-.footer__input:focus {
-    border-color: var(--checkbox-color-active);
-}
+    &__input:hover,
+    &__input:focus {
+        border-color: var(--checkbox-color-active);
+    }
 
-.footer__buttonicon {
-    margin-left: 10px;
+    &__buttonicon {
+        margin-left: 10px;
+    }
 }

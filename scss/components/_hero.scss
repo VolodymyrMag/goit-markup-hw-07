@@ -11,15 +11,15 @@
         url('../images/header-img.jpg');
     background-position: center;
     background-size: cover;
-}
 
-.hero__title {
-    width: 696px;
-    height: 120px;
-    margin: 0 auto 30px auto;
-    font-weight: 900;
-    font-size: 44px;
-    line-height: 1.36;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    &__title {
+        width: 696px;
+        height: 120px;
+        margin: 0 auto 30px auto;
+        font-weight: 900;
+        font-size: 44px;
+        line-height: 1.36;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
 }

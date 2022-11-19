@@ -1,107 +1,112 @@
-.header__container {
-    display: flex;
-    justify-content: space-between;
-}
+.header {
+    border-bottom: 1px solid #ececec;
 
-.header__nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.header__menu {
-    display: flex;
-    margin-left: 93px;
-}
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.header__item {
-    position: relative;
-}
+    &__menu {
+        display: flex;
+        margin-left: 93px;
+    }
 
-.header__link--current::after {
-    content: '';
-    display: block;
-    width: calc(100% - 40px);
-    height: 4px;
-    background-color: var(--button-background-color);
-    position: absolute;
-    bottom: -1px;
-    border-radius: 2px;
-}
+    &__item {
+        position: relative;
+    }
 
+    &__link--current {
+        &::after {
+            content: '';
+            display: block;
+            width: calc(100% - 40px);
+            height: 4px;
+            background-color: var(--button-background-color);
+            position: absolute;
+            bottom: -1px;
+            border-radius: 2px;
+        }
+    }
 
-.header__menu .header__link {
-    display: block;
-    padding-top: 32px;
-    padding-bottom: 32px;
+    &__menu &__link {
+        display: block;
+        padding-top: 32px;
+        padding-bottom: 32px;
 
-    color: var(--title-text-color);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.02em;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+        color: var(--title-text-color);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.14;
+        letter-spacing: 0.02em;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.header__menu .header__link:hover,
-.header__menu .header__link:focus {
-    color: var(--accent-color);
-    opacity: 1;
-}
+    &__menu &__link:hover,
+    &__menu &__link:focus {
+        color: var(--accent-color);
+        opacity: 1;
+    }
 
-.header__link--current {
-    color: var(--accent-color);
-}
+    &__link--current {
+        color: var(--accent-color);
+    }
 
-.header__menu .header__item:not(:last-child) {
-    padding-right: 40px;
-}
+    &__menu &__item:not(:last-child) {
+        padding-right: 40px;
+    }
 
-.header__connection {
-    display: flex;
-}
+    &__connection {
+        display: flex;
+    }
 
-.header__connection .header__item:not(:last-child) {
-    padding-right: 30px;
-}
+    &__connection &__item:not(:last-child) {
+        padding-right: 30px;
+    }
 
-.header__link {
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+    &__link {
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.header__link:hover .header__icon {
-    fill: var(--accent-color);
-}
+    &__link:hover &__icon {
+        fill: var(--accent-color);
+    }
 
-.header__icon {
-    margin-right: 10px;
-    fill: var(--primary-text-color);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+    &__icon {
+        margin-right: 10px;
+        fill: var(--primary-text-color);
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.header__connection .header__link {
-    display: flex;
-    align-items: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    color: var(--primary-text-color);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.02em;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+    &__connection &__link {
+        display: flex;
+        align-items: center;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        color: var(--primary-text-color);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.14;
+        letter-spacing: 0.02em;
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.header__connection .header__link:hover,
-.header__connection .header__link:focus {
-    fill: var(--accent-color);
-}
+    &__connection &__link:hover,
+    &__connection &__link:focus {
+        fill: var(--accent-color);
+    }
 
-.header__link:focus .header__icon {
-    fill: var(--accent-color);
-}
+    &__link:focus &__icon {
+        fill: var(--accent-color);
+    }
 
-.header__link:hover,
-.header__link:focus {
-    color: var(--accent-color);
+    &__link:hover,
+    &__link:focus {
+        color: var(--accent-color);
+    }
 }
